@@ -2,8 +2,8 @@
   "name": "peblo-notes-backend",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
   },
   "dependencies": {
     "@google/genai": "^1.0.0",
