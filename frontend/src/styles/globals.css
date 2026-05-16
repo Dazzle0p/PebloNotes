@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-900 font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  .dark body {
+    @apply bg-ink-950 text-ink-100;
+  }
+
+  ::selection {
+    @apply bg-amber-400 text-ink-950;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ink-900 text-white px-4 py-2 rounded-lg font-medium text-sm
+           hover:bg-ink-800 active:bg-ink-950 transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-ink-200 text-ink-800 px-4 py-2 rounded-lg
+           font-medium text-sm hover:bg-ink-50 active:bg-ink-100
+           transition-all duration-150 disabled:opacity-40;
+  }
+
+  .btn-ghost {
+    @apply text-ink-600 px-3 py-1.5 rounded-md text-sm font-medium
+           hover:bg-ink-100 hover:text-ink-900 transition-all duration-150;
+  }
+
+  .input {
+    @apply w-full border border-ink-200 rounded-lg px-3 py-2 text-sm
+           bg-white placeholder-ink-400 text-ink-900
+           focus:outline-none focus:ring-2 focus:ring-ink-900 focus:border-transparent
+           transition-all duration-150;
+  }
+
+  .card {
+    @apply bg-white border border-ink-100 rounded-xl shadow-sm;
+  }
+
+  .tag-pill {
+    @apply inline-flex items-center gap-1 bg-amber-50 text-amber-700
+           border border-amber-200 text-xs font-medium px-2 py-0.5 rounded-full;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-ink-200 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-ink-300; }
+
+/* Note editor textarea */
+.note-editor {
+  resize: none;
+  field-sizing: content;
+  min-height: 400px;
+}
