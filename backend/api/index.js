@@ -61,4 +61,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-module.exports = serverless(app);
+const handler = serverless(app);
+
+if (require.main === module) {
+  const port = process.env.PORT || 5000;
+  app.listen(port, () => {
+    console.log(`🚀 Backend running on http://localhost:${port}`);
+  });
+}
+
+module.exports = handler;
