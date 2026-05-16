@@ -15,14 +15,14 @@ const insightsRoutes = require("../src/routes/insights.routes");
 
 const app = express();
 
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    return next();
-  } catch (error) {
-    return next(error);
-  }
-});
+// app.use(async (req, res, next) => {
+//   try {
+//     await connectDB();
+//     return next();
+//   } catch (error) {
+//     return next(error);
+//   }
+// });
 
 app.use(helmet());
 
