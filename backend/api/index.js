@@ -15,13 +15,20 @@ const insightsRoutes = require("../src/routes/insights.routes");
 
 const app = express();
 
-connectDB();
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 app.use(helmet());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://peblo-notes-nine.vercel.app/"],
+    origin: ["http://localhost:5173", "https://peblo-notes-nine.vercel.app"],
     credentials: true,
   }),
 );
